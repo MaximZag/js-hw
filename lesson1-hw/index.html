@@ -41,9 +41,9 @@
     // alert(l);
     // alert(m);
 
-    document.write(a);
-    document.write(b);
-    document.write(c, d, e, f, g, h, i, j, k, l, m);
+    document.write(a + "<br/>");
+    document.write(b + "<br/>");
+    document.write(c + "<br/>", d + "<br/>", e + "<br/>", f + "<br/>", g + "<br/>", h + "<br/>", i + "<br/>", j + "<br/>", k + "<br/>", l + "<br/>", m + "<br/>");
 
     a = a + b;
     b = (b + ' good');
@@ -72,7 +72,7 @@
     console.log(k);
     console.log(l);
     console.log(m);
-    document.write(a, b, c, d, e, f, g, h, i, j, k, l, m);
+    document.write(a + "<br/>", b + "<br/>", c + "<br/>", d + "<br/>", e + "<br/>", f + "<br/>", g + "<br/>", h + "<br/>", i + "<br/>", j + "<br/>", k + "<br/>", l + "<br/>", m + "<br/>");
 
 
     let firstname = 'Maxim';
@@ -87,6 +87,36 @@
     let age = prompt('Age');
     let result = ('Вітаю ' + surname + ' ' + name + '. Тобі ' + age + ' років.');
     console.log(result);
+
+    a = 100;
+    b = '100';
+    c = true;
+    console.log(typeof a);
+    console.log(typeof b);
+    console.log(typeof c);
+
+
+    console.log(5 < 6);
+    console.log(5 > 6);
+    console.log(5 === 6);
+    console.log(5 >= 6);
+    console.log(10 == 10);
+    console.log(10 === 10);
+    console.log(10 > 10);
+    console.log(10 < 10);
+    console.log(10 !== 10);
+    console.log(123 != '123');
+    console.log(123 == '123');
+
+    let str = "20";
+    a = 5;
+    document.write(str + a + "<br/>");//результат 205 - стринг и номер пишутся друг за другом,
+    // чтобы сложить нужно преобразовать стринг в номер
+    document.write(parseInt(str, 10) + a + "<br/>");
+    //дальше просто математические вычисления
+    document.write(str - a + "<br/>");
+    document.write(str * "2" + "<br/>");
+    document.write(str / 2 + "<br/>");
 
 </script>
 </body>
