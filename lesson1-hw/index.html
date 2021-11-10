@@ -11,21 +11,83 @@
 
 
 <script>
-    let a='hello';
-    let b='owu';
-    let c='com';
-    let d='ua';
-    let e=1;
-    let f=10;
-    let g=-999;
-    let h=123;
-    let i=3.14;
-    let j=2.7;
-    let k=16;
-    let l=true;
-    let m=false;
+    let a = 'hello';
+    let b = 'owu';
+    let c = 'com';
+    let d = 'ua';
+    let e = 1;
+    let f = 10;
+    let g = -999;
+    let h = 123;
+    let i = 3.14;
+    let j = 2.7;
+    let k = 16;
+    let l = true;
+    let m = false;
 
-    console.log(a,b,c,d,e,f,g,h,i,j,k,l,m)
+    console.log(a, b, c, d, e, f, g, h, i, j, k, l, m);
+
+    // alert(a);
+    // alert(b);
+    // alert(c);
+    // alert(d);
+    // alert(e);
+    // alert(f);
+    // alert(g);
+    // alert(h);
+    // alert(i);
+    // alert(j);
+    // alert(k);
+    // alert(l);
+    // alert(m);
+
+    document.write(a);
+    document.write(b);
+    document.write(c, d, e, f, g, h, i, j, k, l, m);
+
+    a = a + b;
+    b = (b + ' good');
+    c = ('google.' + c);
+    d = ('kiev.' + d);
+    e = ++e;
+    f = --f;
+    g = g - 1;
+    h = 'max';
+    i = i * j;
+    j = (j + ' is constant');
+    k = k - 16;
+    l = m;
+    m = true;
+
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+    console.log(f);
+    console.log(g);
+    console.log(h);
+    console.log(i);
+    console.log(j);
+    console.log(k);
+    console.log(l);
+    console.log(m);
+    document.write(a, b, c, d, e, f, g, h, i, j, k, l, m);
+
+
+    let firstname = 'Maxim';
+    let middlename = 'Olexandrovich';
+    let lastname = 'Zagubiy';
+    let person = (lastname + ' ' + firstname + ' ' + middlename);
+    console.log(person);
+
+
+    let name = prompt('Name');
+    let surname = prompt('Surname');
+    let age = prompt('Age');
+    let result = ('Вітаю ' + surname + ' ' + name + '. Тобі ' + age + ' років.');
+    console.log(result);
+
 </script>
 </body>
 </html>
