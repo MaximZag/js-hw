@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+    // - Дано змінну time яка рівна числу від 0 до 59. Потрібно написати код, який перевірить, до якої четверті години попадає число
+    // (в першу, другу, третю или четверту частину години).
+    let time = +prompt('Input Time');
+    if (time <= 15) {
+        document.write('First quarter')
+    } else if (time <= 30) {
+        document.write('Second quarter')
+    } else if (time <= 45) {
+        document.write('Third quarter')
+    } else if (time<=59) {
+        document.write('Forth quarter')
+    } else {
+        document.write('Please, input correct number!')
+    }
+
+</script>
+
+</body>
+</html>
