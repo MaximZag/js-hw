@@ -12,15 +12,29 @@
 <script>
     // - Дано змінну time яка рівна числу від 0 до 59. Потрібно написати код, який перевірить, до якої четверті години попадає число
     // (в першу, другу, третю или четверту частину години).
-    let time = +prompt('Input Time');
-    if (time <= 15) {
-        document.write('First quarter')
-    } else if (time <= 30) {
-        document.write('Second quarter')
-    } else if (time <= 45) {
-        document.write('Third quarter')
-    } else if (time<=59) {
-        document.write('Forth quarter')
+    // let time = +prompt('Input Time');
+    // if (time <= 15) {
+    //     document.write('First quarter')
+    // } else if (time <= 30) {
+    //     document.write('Second quarter')
+    // } else if (time <= 45) {
+    //     document.write('Third quarter')
+    // } else if (time <= 59) {
+    //     document.write('Forth quarter')
+    // } else {
+    //     document.write('Please, input correct number!')
+    // }
+
+    // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число (у першу, другу чи третю).
+    let day = +prompt('Input Day');
+    if (day === 0) {
+        document.write('Please, input correct number!')
+    } else if (day <= 10) {
+        document.write('First decade')
+    } else if (day <= 20) {
+        document.write('Second decade')
+    } else if (day <= 31) {
+        document.write('Third decade')
     } else {
         document.write('Please, input correct number!')
     }
