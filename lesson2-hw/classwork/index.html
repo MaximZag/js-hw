@@ -51,19 +51,53 @@
     //     якщо в змінну записали стрінгу вивести 2, якщо булеве значення - 3, якщо об'єкт або масив - 4.
     // якщо в змінну записали щось інше, спрацьовує else
 
-    let b = prompt('Enter somthing');
-    if (typeof b === 'number') {
-        document.write(1)
-    } else if (typeof b === 'string') {
-        document.write(2)
-    } else if (typeof b === 'boolean') {
-        document.write(3)
-    } else if (typeof b === 'object') {
-        document.write(4)
-    } else {
-        document.write('Something else')
-    }
+    // let b = !!null;
+    // if (typeof b === 'number') {
+    //     document.write(1)
+    // } else if (typeof b === 'string') {
+    //     document.write(2)
+    // } else if (typeof b === 'boolean') {
+    //     document.write(3)
+    // } else if (typeof b === 'object') {
+    //     document.write(4)
+    // } else {
+    //     document.write('Something else')
+    // }
 
+    // - Задача-гра "чи ми йдемо сьогодні в OKTEN на навчання?".
+    //     Змінна, яка характеризує температуру. Якщо температура від +10 до +22 вивести повідомлення що ми йдемо ВЧИТИСЯ .
+    //     Якщо інша темпаретура, тоді виводимо повідомлення що сидимо вдома і вчимося ОНЛАЙН
+
+    // let t = +prompt('What is the temperature outside now?');
+    // if (t >= 10 && t <= 22) {
+    //     document.write('Go to OKTEN')
+    // } else {
+    //     document.write('Stay at home')
+    // }
+
+    // - За допомогою switch case - реалізувати гру - вікторину, де ми вводимо число від 1 до 5. І взалежності від введеного
+    //     числа нам дається приз. (Авто, Мото, Телефон, і т.д ) і якщо число не підходить тоді  вивести Повідомлення - що число не вірне ... .
+
+    // let num = +prompt('Enter the number between 1 and 5');
+    // switch (num) {
+    //     case(1):
+    //         document.write('You win the Car');
+    //         break;
+    //     case(2):
+    //         document.write('You win the Motorbike');
+    //         break;
+    //     case (3):
+    //         document.write('You win the Phone');
+    //         break;
+    //     case(4):
+    //         document.write('You win the TV');
+    //         break;
+    //     case (5):
+    //         document.write('You win 500$');
+    //         break;
+    //     default:
+    //         document.write('You entered wrong number');
+    // }
 
 
 </script>
