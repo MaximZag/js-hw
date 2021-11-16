@@ -1,7 +1,15 @@
-<!--template 2.1-->
+// <!--template 2.2-->
 // <div>
-//     NAME- SURNAME- AGE- INFO- <img src="PHOTO" alt="">
+//     <h2>NAME SURNAME. age is - AGE</h2>
+//     <p>INFO</p>
+//     <img src="PHOTO" alt="">
 // </div>
+// <!--
+// інші об'єкти з масиву
+// ...
+// ...
+// ...
+// -->
 
 /*
 			Використовуючи данні з масиву, за допомоги document.write та циклу
@@ -48,7 +56,9 @@ let simpsons = [
 ];
 
 for (let item of simpsons) {
-    document.write(`<div>`);
-    document.write(`${item.name}-${item.surname}-${item.age}-${item.info}-<img src="${item.photo}" alt="${item.name}">`);
+    document.write(`<div class="center">`);
+    document.write(`<h2>${item.name} ${item.surname}. age is - ${item.age}</h2>`);
+    document.write(`<p class="text">${item.info}</p>`);
+    document.write(`<img src="${item.photo}" alt="${item.name}">`)
     document.write(`</div>`);
 }
