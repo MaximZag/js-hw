@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-image {
+    width: 200px;
+}
+
+
