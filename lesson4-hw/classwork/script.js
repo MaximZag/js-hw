@@ -103,3 +103,43 @@ document.write(`<h2>Min number is ${maxmin(numbers)}</h2>`);
 // - створити функцію яка заповнює масив рандомними числами
 // (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.
 
+let randomarray = [];
+
+function random(size) {
+    for (let i = 0; i < size; i++) {
+        randomarray[i] = Math.round(Math.random() * 100);
+        document.write(randomarray[i] + `, `);
+    }
+    console.log(randomarray);
+}
+
+random(10);
+
+// - створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.
+document.write(`<hr/>`);
+
+let randomlimit = [];
+
+function random2(size, limit) {
+    for (let i = 0; i < size; i++) {
+        randomlimit[i] = Math.round(Math.random() * limit);
+        document.write(randomlimit[i] + `, `);
+    }
+    console.log(randomlimit);
+}
+
+random2(5, 200);
+
+// - Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].
+
+let array2 = [];
+
+function viseversa(array) {
+    for (let i = 0; i < array.length; i++) {
+        array2[array.length - 1 - i] = array[i];
+    }
+    console.log(array);
+    console.log(array2);
+}
+
+viseversa(numbers);
