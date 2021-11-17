@@ -106,3 +106,11 @@ let simpsons = [
         age: 1,
     },
 ];
+function data(simarray) {
+    for (let i = 0; i < simarray.length; i++) {
+        document.write(`<div>`);
+       document.write(`<div>${simarray[i].name} ${simarray[i].surname} age- ${simarray[i].age}</div>`);
+        document.write(`</div>`);
+    }
+}
+data(simpsons);
