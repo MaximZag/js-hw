@@ -31,3 +31,34 @@ function sum(a, b) {
 document.write(`<div>${array1}</div>`);
 document.write(`<div>${array2}</div>`);
 document.write(`<div>${sum(array1, array2)}</div>`);
+
+// - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
+// EXAMPLE:
+//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
+
+let anyarray = [{name: 'Dima', age: 13}, {model: 'Camry'}, {model2: 'Ford', type: 3}];
+let result = [];
+
+function objects(any) {
+    for (let i = 0; i < any.length; i++) {
+        result[i] = Object.keys(any[i]);
+    }
+    return result
+}
+
+document.write(`${objects(anyarray)}`);
+
+// - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
+// EXAMPLE:
+//     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+
+let result2 = [];
+
+function objects2(val) {
+    for (let i = 0; i < val.length; i++) {
+        result2[i] = Object.values(val[i]);
+    }
+    return result2
+}
+
+document.write(`<div>${objects2(anyarray)}</div>`);
