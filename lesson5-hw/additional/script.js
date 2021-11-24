@@ -47,23 +47,27 @@ result([2, 4, 6, 8], 2);
 // debugger
 let res = (zarray) => {
     for (let i = 0; i < zarray.length; i++) {
-        if (zarray[i] === 0 && zarray[i+1]!==0) {
+        if (zarray[i] === 0) {
             for (let j = i; j < zarray.length - 1; j++) {
-                let m = zarray[j];
                 zarray[j] = zarray[j + 1];
-                zarray[j + 1] = m;
+                // if (zarray[j]===0){
+                //
+                // }
             }
-            zarray[zarray.length - 1] = 0
-        }else{
-            // for (let j = i+1; j < zarray.length - 1; j++) {
-            //     let m = zarray[j];
-            //     zarray[j] = zarray[j + 1];
-            //     zarray[j + 1] = m;
-            // }
-            // zarray[zarray.length - 1] = 0
+            zarray[zarray.length - 1] = 0;
+
         }
+
+        // else if (zarray[i] === 0 && zarray[i+1]===0) {
+        //     for (let j = i; j < zarray.length-1; j++) {
+        //         zarray[j] = zarray[j + 2];
+        //     }
+        //     zarray[zarray.length - 1] = 0;
+        //     zarray[zarray.length - 2] = 0;
+        // }
+
     }
     console.log(zarray);
 }
-res([0, 0, 6, 1, 5]);
+res([0,0,1,0]);
 
