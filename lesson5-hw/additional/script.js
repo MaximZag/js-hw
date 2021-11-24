@@ -19,7 +19,7 @@ let numbers = (a, b) => {
         for (let i = a; i >= b; i--) {
             document.write(`${i}, `);
         }
-    } else document.write(Равны);
+    } else document.write(`Равны`);
 }
 numbers(9, 3);
 document.write(`</div>`);
@@ -44,18 +44,26 @@ result([2, 4, 6, 8], 2);
 //     [1,0,6,0,3] => [1,6,3,0,0]
 //     [0,1,2,3,4] => [1,2,3,4,0]
 //     [0,0,1,0]   => [1,0,0,0]
-debugger
+// debugger
 let res = (zarray) => {
     for (let i = 0; i < zarray.length; i++) {
-        if (zarray[i] === 0) {
+        if (zarray[i] === 0 && zarray[i+1]!==0) {
             for (let j = i; j < zarray.length - 1; j++) {
                 let m = zarray[j];
                 zarray[j] = zarray[j + 1];
                 zarray[j + 1] = m;
             }
             zarray[zarray.length - 1] = 0
+        }else{
+            // for (let j = i+1; j < zarray.length - 1; j++) {
+            //     let m = zarray[j];
+            //     zarray[j] = zarray[j + 1];
+            //     zarray[j + 1] = m;
+            // }
+            // zarray[zarray.length - 1] = 0
         }
     }
     console.log(zarray);
 }
 res([0, 0, 6, 1, 5]);
+
