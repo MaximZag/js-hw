@@ -45,29 +45,20 @@ result([2, 4, 6, 8], 2);
 //     [0,1,2,3,4] => [1,2,3,4,0]
 //     [0,0,1,0]   => [1,0,0,0]
 // debugger
-let res = (zarray) => {
+let resarray = [];
+let n = 0;
+let k = 0;
+let zero = (zarray) => {
     for (let i = 0; i < zarray.length; i++) {
         if (zarray[i] === 0) {
-            for (let j = i; j < zarray.length - 1; j++) {
-                zarray[j] = zarray[j + 1];
-                // if (zarray[j]===0){
-                //
-                // }
-            }
-            zarray[zarray.length - 1] = 0;
-
+            n++;
+            resarray[zarray.length - n] = 0;
+        } else if (zarray[i] !== 0) {
+            k++;
+            resarray[k - 1] = zarray[i];
         }
-
-        // else if (zarray[i] === 0 && zarray[i+1]===0) {
-        //     for (let j = i; j < zarray.length-1; j++) {
-        //         zarray[j] = zarray[j + 2];
-        //     }
-        //     zarray[zarray.length - 1] = 0;
-        //     zarray[zarray.length - 2] = 0;
-        // }
-
     }
-    console.log(zarray);
+    console.log(resarray);
 }
-res([0,0,1,0]);
+zero([0,0,1,2,3,0,0,0,0,4,1,0,6,0,3,1,0,6,0,3,0,1,2,3,4]);
 
