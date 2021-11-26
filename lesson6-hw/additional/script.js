@@ -18,14 +18,12 @@ cutString('наслаждение', 4);
 
 let n = 0;
 let k = 0;
-// debugger
 let find = (string, search) => {
-    while (string.length) {
+    while (string.includes(search) === true) {
         n = string.indexOf(search);
         k++;
-        string = string.slice(n+1);
+        string = string.slice(n + 1);
     }
-    console.log(n);
-    console.log(string);
+    console.log(k);
 }
 find("Астрономия это наука о небесных объектах", 'о');
