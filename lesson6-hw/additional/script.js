@@ -33,7 +33,9 @@ let emailvalidator = (email) => {
     }
 
     function point(symbol, point) {
-        if (point <= symbol + 2) {
+        if (point===-1){
+            return 'крапка відсутня';
+        } else if (point <= symbol + 2) {
             return 'крапка знаходиться ближче ніж 2 символ після равлика';
         } else {
             return 'крапка знаходиться далі ніж 2 символ після равлика';
