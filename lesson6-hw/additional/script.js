@@ -43,7 +43,7 @@ let emailvalidator = (email) => {
     }
 }
 
-emailvalidator('@i.ua');
+emailvalidator('gfhfd.fdf@iua');
 
 
 // - є масив
