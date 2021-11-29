@@ -106,7 +106,7 @@ cindarray[0]=new Cinderella('Olya', 20,33);
 cindarray[1]=new Cinderella('Tanya', 19,32);
 cindarray[2]=new Cinderella('Katya', 22,30);
 cindarray[3]=new Cinderella('Yana', 23,36);
-cindarray[4]=new Cinderella('Anya', 21,35);
+cindarray[4]=new Cinderella('Anya', 21,31);
 cindarray[5]=new Cinderella('Ulya', 28,35);
 cindarray[6]=new Cinderella('Emma', 40,37);
 cindarray[7]=new Cinderella('Toma', 24,39);
@@ -124,7 +124,7 @@ class Prince{
     }
 }
 
-let prince=new Prince('Kolya', 33, 39);
+let prince=new Prince('Kolya', 33, 35);
 console.log(prince);
 
 //     За допомоги циклу знайти яка попелюшка повинна бути з принцом.
