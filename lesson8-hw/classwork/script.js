@@ -93,5 +93,3 @@ let difText = document.getElementsByClassName('text2');
 for (const difTextElement of difText) {
     difTextElement.innerText = 'sep-2021';
 }
-
-console.log(document.classList);
