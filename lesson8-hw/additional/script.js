@@ -6,11 +6,14 @@ function reCallClass(startElement) {
     if (startElement.children.length) {
         for (const element of startElement.children) {
             if (element.classList.length) {
-                array.push(element.classList);
+                for (const elementElement of element.classList) {
+                    array.push(elementElement);
+                }
             }
             reCallClass(element);
         }
     }
 }
+
 console.log(array);
 reCallClass(document.body);
