@@ -1,8 +1,8 @@
 // 1) Напишіть код, який :
-// a) змінює клас елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
+// a) змінює id елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
 
-let changeClass = document.getElementById('main_header').className='sep-2021';
-console.log(changeClass);
+document.getElementById('main_header').id='sep-2021';
+console.log(document.body.innerHTML);
 
 
 // b) робить шириниу елементу ul 400px
