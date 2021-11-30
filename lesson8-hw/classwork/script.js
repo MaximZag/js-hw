@@ -2,7 +2,7 @@
 // a) змінює id елемнту з ід main_header на назву групи в якій ви вчитесь (mon-year)
 
 document.getElementById('main_header').id='sep-2021';
-console.log(document.body.innerHTML);
+console.log(document.body.children[0]);
 
 
 // b) робить шириниу елементу ul 400px
