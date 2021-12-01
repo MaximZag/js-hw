@@ -140,7 +140,9 @@ for (const coursesArrayElement of coursesArray) {
             let elBlock = document.createElement('div');
             elBlock.innerText = `${key}: ${value}`;
             block.appendChild(elBlock);
+            if (key==='monthDuration' || key==='hourDuration'){
+                elBlock.classList.add('inline');
+            }
         }
-
     });
 }
