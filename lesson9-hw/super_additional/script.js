@@ -115,7 +115,7 @@ for (const user of users) {
 //Сделал отдельным файлом.
 
 // -Є масив котрий характеризує правила. Створити скрипт який ітерує цей масив, та робить з кожне правило в окремому блоці.
-//     При цому в блоці, номер правила записати в свій блок, текст правила записати в свій окремий блок.
+//     При цому в блоці, назва правила записати в свій блок, текст правила записати в свій окремий блок.
 //     Результатом відпрацювання скріпта повинна бути структура яка міститься в блоці wrap файла rule.html
 
 let rules = [
@@ -153,3 +153,15 @@ let rules = [
     },
 
 ];
+
+let wrap=document.createElement('div');
+document.body.appendChild(wrap);
+for (const rule of rules) {
+    let item=document.createElement('div');
+    wrap.appendChild(item);
+    let h2=document.createElement('h2');
+    h2.innerText=rule.title;
+    let p=document.createElement('p');
+    p.innerText=rule.body;
+    item.append(h2, p);
+}
