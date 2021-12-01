@@ -97,11 +97,11 @@ for (const user of users) {
         let div = document.createElement('div');
         block.appendChild(div);
         if (key === 'address') {
-           Object.entries(value).forEach(([key1,value1])=>{
-               let addBlock=document.createElement('div');
-               div.appendChild(addBlock);
-               addBlock.innerText=key1+' '+value1;
-           });
+            Object.entries(value).forEach(([key1, value1]) => {
+                let addBlock = document.createElement('div');
+                div.appendChild(addBlock);
+                addBlock.innerText = key1 + ' ' + value1;
+            });
         } else {
             div.innerText = value;
         }
@@ -154,14 +154,15 @@ let rules = [
 
 ];
 
-let wrap=document.createElement('div');
+let wrap = document.createElement('div');
 document.body.appendChild(wrap);
-for (const rule of rules) {
-    let item=document.createElement('div');
+for (let i = 0; i < rules.length; i++) {
+    let item = document.createElement('div');
     wrap.appendChild(item);
-    let h2=document.createElement('h2');
-    h2.innerText=rule.title;
-    let p=document.createElement('p');
-    p.innerText=rule.body;
+    item.classList.add(`rules`, `rule${i + 1}`);
+    let h2 = document.createElement('h2');
+    h2.innerText = rules[i].title;
+    let p = document.createElement('p');
+    p.innerText = rules[i].body;
     item.append(h2, p);
 }
