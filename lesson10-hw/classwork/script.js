@@ -84,8 +84,30 @@ buttonTable.onclick = function () {
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 //     Перевірку робити при натисканні на кнопку
-//
-//
+
+let arrayMat = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6'];
+let divmat = document.createElement('div');
+document.body.appendChild(divmat);
+divmat.style.marginTop = '20px';
+let inputMat = document.createElement('input');
+let buttonMat = document.createElement('button');
+buttonMat.innerText = 'Check the word';
+divmat.append(inputMat, buttonMat);
+
+buttonMat.onclick = function () {
+    for (const word of arrayMat) {
+        if (word === inputMat.value) {
+            alert(`${word} is a very bad word`)
+            inputMat.value = '';
+            return;
+        }
+    }
+    if (inputMat.value) {
+        alert('This word is good!');
+        inputMat.value = '';
+    }
+}
+
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
