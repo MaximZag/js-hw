@@ -84,7 +84,7 @@ buttonTable.onclick = function () {
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 //     Перевірку робити при натисканні на кнопку
-
+//
 let arrayMat = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6'];
 let divmat = document.createElement('div');
 document.body.appendChild(divmat);
@@ -114,3 +114,31 @@ buttonMat.onclick = function () {
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
 
+let divmat1 = document.createElement('div');
+document.body.appendChild(divmat1);
+divmat1.style.marginTop = '20px';
+let inputMat1 = document.createElement('input');
+let buttonMat1 = document.createElement('button');
+buttonMat1.innerText = 'Check the sentence';
+divmat1.append(inputMat1, buttonMat1);
+
+let k = 0;
+buttonMat1.onclick = function () {
+    let sentenceArray = inputMat1.value.split(' ');
+    for (const word of sentenceArray) {
+        for (const mat of arrayMat) {
+            if (word === mat) {
+                alert(`${word} is a very bad word`)
+                k++;
+            }
+        }
+    }
+    if (inputMat1.value && k === 0) {
+        alert('Bad words were not found');
+        inputMat1.value = '';
+    } else {
+
+        alert('Search is complete');
+        inputMat1.value = '';
+    }
+}
