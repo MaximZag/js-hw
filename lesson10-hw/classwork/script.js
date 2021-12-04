@@ -2,31 +2,34 @@
 //     Кнопка повинна лежати за межами форм (Щоб ьуникнути  перезавантаження сторінки)
 // Доступ до інпутів через Forms API. Отже дайте формі та інпутам всі необхідні атрибути.
 
-let form1=document.createElement('form');
-form1.setAttribute('name','form1');
-let form2=document.createElement('form');
-form2.setAttribute('name','form2');
-let input1=document.createElement('input');
-input1.setAttribute('name','input1');
-let input2=document.createElement('input');
-input2.setAttribute('name','input2');
-let input3=document.createElement('input');
-input3.setAttribute('name','input3');
-let input4=document.createElement('input');
-input4.setAttribute('name','input4');
-let button=document.createElement('button');
-button.id='but';
-button.innerText='Submit';
+let form1 = document.createElement('form');
+form1.setAttribute('name', 'form1');
+form1.innerText = 'Form1'
+let form2 = document.createElement('form');
+form2.setAttribute('name', 'form2');
+form2.style.marginTop = '15px';
+form2.innerText = 'Form2'
+let input1 = document.createElement('input');
+input1.setAttribute('name', 'input1');
+let input2 = document.createElement('input');
+input2.setAttribute('name', 'input2');
+let input3 = document.createElement('input');
+input3.setAttribute('name', 'input3');
+let input4 = document.createElement('input');
+input4.setAttribute('name', 'input4');
+let button = document.createElement('button');
+button.id = 'but';
+button.innerText = 'Submit';
+button.style.marginTop = '15px';
 
-document.body.append(form1,form2, button);
-form1.append(input1,input2);
-form2.append(input3,input4);
+document.body.append(form1, form2, button);
+form1.append(input1, input2);
+form2.append(input3, input4);
 
-button.onclick=function () {
-    console.log(input1.value +' - '+input2.value);
-    console.log(input2.value +' - '+input3.value);
+button.onclick = function () {
+    console.log(input1.value + ' - ' + input2.value);
+    console.log(input3.value + ' - ' + input4.value);
 }
-
 
 
 //
@@ -34,6 +37,47 @@ button.onclick=function () {
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
 //
+
+let div1 = document.createElement('div');
+let div2 = document.createElement('div');
+let div3 = document.createElement('div');
+div1.innerText = 'Rows';
+div1.style.marginTop = '20px';
+div2.innerText = 'Cells';
+div2.style.marginTop = '20px';
+div3.innerText = 'Values';
+div3.style.marginTop = '20px';
+let inputRow = document.createElement('input');
+let inputCell = document.createElement('input');
+let inputValue = document.createElement('input');
+let buttonTable = document.createElement('button');
+buttonTable.innerText = 'Submit';
+buttonTable.style.marginTop = '20px';
+
+document.body.append(div1, div2, div3, buttonTable);
+div1.appendChild(inputRow);
+div2.appendChild(inputCell);
+div3.appendChild(inputValue);
+
+buttonTable.onclick = function () {
+
+    let table = document.createElement('table');
+    document.body.appendChild(table);
+
+    for (let i = 0; i < inputRow.value; i++) {
+        let row = document.createElement('tr');
+        row.style.border = '1px solid black';
+        for (let j = 0; j < inputCell.value; j++) {
+            let column = document.createElement('td');
+            column.style.border = '1px solid black';
+            row.appendChild(column);
+            column.innerText = inputValue.value;
+        }
+        table.appendChild(row);
+    }
+}
+
+
 //
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
@@ -47,3 +91,4 @@ button.onclick=function () {
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
+
