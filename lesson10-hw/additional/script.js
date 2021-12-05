@@ -128,3 +128,15 @@ check3.onclick=function () {
     }
 }
 
+// Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
+// *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
+
+document.body.onmouseup=function () {
+    if (window.getSelection()) {
+        let select = window.getSelection().toString();
+        let returnText = '<b>' + select + '</b>';
+        document.body.innerHTML = document.body.innerHTML.replace(select, returnText);
+    }
+}
+
+
