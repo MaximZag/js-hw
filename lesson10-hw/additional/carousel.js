@@ -4,16 +4,21 @@ document.body.appendChild(divcontainer);
 let image1 = document.createElement('img');
 let image2 = document.createElement('img');
 let image3 = document.createElement('img');
+let image4 = document.createElement('img');
+let image5 = document.createElement('img');
 let imageleft = document.createElement('img');
 let imageright = document.createElement('img');
-image1.src = "1.png";
-image2.src = "2.png";
-image3.src = "3.png";
-image1.style.position = 'absolute';
-image2.style.position = 'absolute';
-image3.style.position = 'absolute';
-image2.style.display = 'none';
-image3.style.display = 'none';
+
+let array = [image1, image2, image3, image4, image5];
+for (let i = 0; i < array.length; i++) {
+    array[i].src = `${i + 1}.png`;
+    array[i].style.position = 'absolute';
+    array[i].style.display = 'none';
+    array[i].style.width = '1170px';
+    array[i].style.height = '780px';
+    divcontainer.appendChild(array[i]);
+}
+
 imageleft.src = "left.png";
 imageright.src = "right.png";
 imageleft.style.width = '100px';
@@ -25,9 +30,9 @@ imageright.style.top = '37%';
 imageleft.style.left = '30px';
 imageright.style.left = '1050px';
 imageleft.style.display = 'none';
-divcontainer.append(image1, image2, image3, imageleft, imageright);
-let array = [image1, image2, image3];
+divcontainer.append(imageleft, imageright);
 
+image1.style.display = 'block';
 let i = 0;
 imageright.onclick = function () {
     i++;
