@@ -6,90 +6,110 @@
 
 let cont = document.createElement('div');
 document.body.append(cont);
-cont.style.display='flex';
-cont.style.flexWrap='wrap';
-cont.style.columnGap='3px';
-cont.style.rowGap='3px';
+cont.style.display = 'flex';
+cont.style.flexWrap = 'wrap';
+cont.style.columnGap = '3px';
+cont.style.rowGap = '3px';
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(users => {
         for (const user of users) {
             let div = document.createElement('div');
-            div.style.width='24%';
-            div.style.border='1px solid black';
-            div.style.borderRadius='5px';
-            div.style.display='flex';
-            div.style.flexDirection='column';
-            div.style.alignItems='center';
+            div.style.width = '90%';
+            div.style.border = '1px solid black';
+            div.style.borderRadius = '5px';
+            div.style.display = 'flex';
+            div.style.flexDirection = 'column';
+            div.style.alignItems = 'center';
             cont.appendChild(div);
             let h2 = document.createElement('h2');
             h2.innerText = `${user.name}`;
             let button = document.createElement('button');
             let buttonHide = document.createElement('button');
-            button.innerText = 'Show';
-            buttonHide.innerText = 'Hide';
-            buttonHide.style.display='none';
-            button.style.marginBottom='10px';
-            div.append(h2, button,buttonHide);
-            button.onclick = function () {
-                button.style.display='none';
-                buttonHide.style.display='block';
-                Object.entries(user).forEach(([key, value]) => {
-                    if (typeof value === 'object') {
-                        let div2 = document.createElement('div');
-                        div2.innerText = `${key}`;
-                        div2.style.border='1px solid green';
-                        div2.style.borderRadius='5px';
-                        div2.style.padding='10px';
-                        let button2 = document.createElement('button');
-                        button2.innerText = 'Show';
-                        div.appendChild(div2);
-                        div2.appendChild(button2);
-                        button2.onclick = function () {
-                                Object.entries(value).forEach(([key1, value1]) => {
-                                    if (typeof value1==='object'){
-                                        let div4=document.createElement('div');
-                                        div4.innerText=`${key1}`;
-                                        div4.style.border='1px solid green';
-                                        div4.style.padding='10px';
-                                        div4.style.borderRadius='5px';
-                                        let button3 = document.createElement('button');
-                                        button3.innerText = 'Show';
-                                        div2.appendChild(div4);
-                                        div4.appendChild(button3);
-                                        button3.onclick=function () {
-                                            Object.entries(value1).forEach(([key2, value2]) => {
-                                                let div5=document.createElement('div');
-                                                div5.innerText=`${key2}: ${value2}`;
-                                                div4.appendChild(div5);
-                                        });
+            button.innerText = 'Show posts';
+            buttonHide.innerText = 'Hide posts';
+            buttonHide.style.display = 'none';
+            button.style.marginBottom = '10px';
+            buttonHide.style.marginBottom = '10px';
+            div.append(h2, button, buttonHide);
+
+            let userDiv = document.createElement('div');
+            div.appendChild(userDiv);
+            userDiv.style.display = 'none';
+
+            fetch('https://jsonplaceholder.typicode.com/posts')
+                .then(value => value.json())
+                .then(posts => {
+                    for (const post of posts) {
+                        if (post.userId === user.id) {
+                            let postdiv = document.createElement('div');
+                            postdiv.style.border = '1px solid green';
+                            postdiv.style.borderRadius = '5px';
+                            postdiv.style.marginBottom = '5px';
+                            let postdivTitle = document.createElement('h2');
+                            let postdivBody = document.createElement('h2');
+                            let postbutton = document.createElement('button');
+                            let postHidebutton = document.createElement('button');
+                            postbutton.innerText = 'Show comments';
+                            postHidebutton.innerText = 'Hide comments';
+                            postHidebutton.style.display = 'none';
+                            postbutton.style.marginLeft = '45%';
+                            postHidebutton.style.marginLeft = '45%';
+                            postbutton.style.marginBottom = '5px';
+                            postdivTitle.innerText = `${post.title.toUpperCase()}`;
+                            postdivTitle.style.borderBottom = '1px solid blue';
+                            postdivTitle.style.textAlign = 'center';
+                            postdivBody.innerText = `${post.body}`;
+                            postdivBody.style.marginLeft='10px';
+                            userDiv.appendChild(postdiv);
+                            postdiv.append(postdivTitle, postdivBody, postbutton, postHidebutton);
+
+                            let comAlldiv = document.createElement('div');
+                            postdiv.appendChild(comAlldiv);
+                            comAlldiv.style.display = 'none';
+
+                            fetch('https://jsonplaceholder.typicode.com/comments')
+                                .then(value => value.json())
+                                .then(comments => {
+                                    for (const comment of comments) {
+                                        if (comment.postId === post.id) {
+                                            let commentdiv = document.createElement('div');
+                                            let commentName = document.createElement('h2');
+                                            let commentBody = document.createElement('h2');
+                                            commentName.style.fontSize = '15px';
+                                            commentName.style.textAlign = 'center';
+                                            commentBody.style.fontSize = '10px';
+                                            commentBody.style.marginLeft='10px';
+                                            commentName.innerText = `${comment.name} (${comment.email})`;
+                                            commentBody.innerText = `${comment.body}`;
+                                            comAlldiv.appendChild(commentdiv);
+                                            commentdiv.append(commentName, commentBody);
                                         }
-                                    }else {
-                                        let div3 = document.createElement('div');
-                                        div3.innerText = `${key1}: ${value1}`;
-                                        div3.style.padding='10px';
-                                        div2.appendChild(div3);
                                     }
                                 });
+                            postbutton.onclick = function () {
+                                postbutton.style.display = 'none';
+                                postHidebutton.style.display = 'block';
+                                comAlldiv.style.display = 'block';
+                            }
+                            postHidebutton.onclick = function () {
+                                comAlldiv.style.display = 'none';
+                                postHidebutton.style.display = 'none';
+                                postbutton.style.display = 'block';
+                            }
                         }
-
-                    } else {
-                        let userDiv = document.createElement('div');
-                        userDiv.innerText = `${key}: ${value}`;
-                        userDiv.style.border = '1px solid green';
-                        userDiv.style.textAlign = 'center';
-                        userDiv.style.padding='10px';
-                        userDiv.style.margin = '2px';
-                        userDiv.style.borderRadius = '5px';
-                        div.appendChild(userDiv);
                     }
                 });
+            button.onclick = function () {
+                button.style.display = 'none';
+                userDiv.style.display = 'block';
+                buttonHide.style.display = 'block';
             }
-            buttonHide.onclick=function () {
-                div2.style.display='none';
-                alert('123');
+            buttonHide.onclick = function () {
+                buttonHide.style.display = 'none';
+                userDiv.style.display = 'none';
+                button.style.display = 'block';
             }
-
-
         }
     });
+
