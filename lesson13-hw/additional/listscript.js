@@ -4,15 +4,13 @@ let buttonReturn = document.createElement('button');
 buttonClear.innerText = 'Delete all products';
 buttonReturn.innerText = 'Return to adding products';
 document.body.append(buttonReturn, buttonClear);
-buttonClear.style.width = '50%';
-buttonReturn.style.width = '50%';
 buttonClear.style.fontSize = '20px';
 buttonReturn.style.fontSize = '20px';
 buttonClear.style.display = 'none';
 buttonReturn.style.width = '40%';
 buttonClear.style.width = '40%';
-buttonClear.style.marginLeft = '5%';
-buttonReturn.style.marginLeft = '5%';
+buttonClear.style.marginLeft = '3%';
+buttonReturn.style.marginLeft = '8%';
 
 if (array.length) {
     buttonClear.style.display = 'inline';
@@ -30,6 +28,7 @@ div.style.flexWrap = 'wrap';
 div.style.columnGap = '10px';
 div.style.rowGap = '10px';
 div.style.marginTop = '20px';
+div.style.marginLeft = '7%';
 document.body.appendChild(div);
 
 for (const item of array) {
