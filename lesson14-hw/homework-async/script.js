@@ -98,44 +98,17 @@ function sleep(issleep) {
     })
 }
 
-wakeup(true)
-    .then(result => {
-        console.log(result);
-        return wash(true)
-    })
-    .then(result => {
-        console.log(result);
-        return touth(true)
-    })
-    .then(result => {
-        console.log(result);
-        return dress(true)
-    })
-    .then(result => {
-        console.log(result);
-        return breakfast(true)
-    })
-    .then(result => {
-        console.log(result);
-        return gowork(true)
-    })
-    .then(result => {
-        console.log(result);
-        return lunch(true)
-    })
-    .then(result => {
-        console.log(result);
-        return gohome(true)
-    })
-    .then(result => {
-        console.log(result);
-        return dinner(true)
-    })
-    .then(result => {
-        console.log(result);
-        return sleep(true)
-    })
-    .then(result => {
-        console.log(result)
-    });
+async function day() {
+    console.log(await wakeup(true));
+    console.log(await wash(true));
+    console.log(await touth(true));
+    console.log(await dress(true));
+    console.log(await breakfast(true));
+    console.log(await gowork(true));
+    console.log(await lunch(true));
+    console.log(await gohome(true));
+    console.log(await dinner(true));
+    console.log(await sleep(true));
+}
 
+day();
