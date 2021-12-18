@@ -10,10 +10,12 @@ div.style.display = 'flex';
 div.style.flexDirection = 'column';
 div.style.alignItems = 'center';
 div.style.rowGap = '5px';
+div.style.marginTop='10px';
+div.style.paddingTop='10px';
 div.style.background='cornflowerblue';
 div.style.borderRadius='10px';
 
-let user = JSON.parse(localStorage.getItem(localStorage.key(0)));
+let user = JSON.parse(localStorage.getItem('user'));
 
 function recall(userObject) {
     for (const key in userObject) {
@@ -55,11 +57,10 @@ div.appendChild(postsdiv);
 
 
 postbutton.onclick = function () {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
         .then(value => value.json())
         .then(posts => {
             for (const post of posts) {
-                if (post.userId === user.id) {
                     let posttitle = document.createElement('div');
                     let title = document.createElement('div');
                     let titlebutton = document.createElement('button');
@@ -74,7 +75,11 @@ postbutton.onclick = function () {
                     titlebutton.innerText = 'Post Details';
                     postsdiv.appendChild(posttitle);
                     posttitle.append(title, titlebutton);
-                }
+
+                    titlebutton.onclick=function () {
+                        localStorage.setItem(`post`, JSON.stringify(post))
+                        document.location='post-details.html';
+                    }
             }
         });
 }

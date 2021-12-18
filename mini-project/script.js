@@ -44,7 +44,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             userdiv.append(username, userbutton);
 
             userbutton.onclick= function () {
-                localStorage.setItem(`${user.id}`, JSON.stringify(user))
+                localStorage.setItem(`user`, JSON.stringify(user))
                 document.location='user-details.html';
             }
         }
