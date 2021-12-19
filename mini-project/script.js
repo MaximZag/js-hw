@@ -50,6 +50,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             userdiv.style.display='flex';
             userdiv.style.flexDirection='column';
             userdiv.style.alignItems='center';
+            userbutton.style.fontSize='15px';
             container.appendChild(userdiv);
             userdiv.append(username, userbutton);
 
