@@ -25,12 +25,13 @@ let container = document.createElement('div');
 document.body.appendChild(container);
 container.style.display = 'flex';
 container.style.flexWrap = 'wrap';
-container.style.rowGap = '5px';
-container.style.columnGap = '5px';
-container.style.justifyContent='center';
-container.style.background='aliceblue';
-container.style.padding='20px';
-container.style.borderRadius='5px';
+container.style.rowGap = '20px';
+container.style.columnGap = '20px';
+container.style.justifyContent = 'center';
+container.style.background = 'aliceblue';
+container.style.padding = '20px';
+container.style.borderRadius = '5px';
+
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(users => {
@@ -39,24 +40,25 @@ fetch('https://jsonplaceholder.typicode.com/users')
             let username = document.createElement('div');
             let userbutton = document.createElement('button');
             username.innerText = user.id + ':' + user.name;
-            username.style.fontSize='20px';
-            username.style.margin='10px';
+            username.style.fontSize = '30px';
+            username.style.margin = '10px';
             userbutton.innerText = 'User Details';
-            userbutton.style.margin='5px';
-            userdiv.style.width='45%';
-            userdiv.style.border='1px solid black';
-            userdiv.style.borderRadius='5px';
-            userdiv.style.background='antiquewhite';
-            userdiv.style.display='flex';
-            userdiv.style.flexDirection='column';
-            userdiv.style.alignItems='center';
-            userbutton.style.fontSize='15px';
+            userbutton.style.margin = '10px';
+            userdiv.style.width = '45%';
+            userdiv.style.border = '1px solid black';
+            userdiv.style.borderRadius = '5px';
+            userdiv.style.background = 'antiquewhite';
+            userdiv.style.display = 'flex';
+            userdiv.style.flexDirection = 'column';
+            userdiv.style.alignItems = 'center';
+            userbutton.style.fontSize = '20px';
+            userbutton.style.borderRadius = '10px';
             container.appendChild(userdiv);
             userdiv.append(username, userbutton);
 
-            userbutton.onclick= function () {
+            userbutton.onclick = function () {
                 localStorage.setItem(`user`, JSON.stringify(user))
-                document.location='user-details.html';
+                document.location = 'user-details.html';
             }
         }
     });

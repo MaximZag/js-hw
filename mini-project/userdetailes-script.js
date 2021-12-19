@@ -39,7 +39,7 @@ function recall(userObject, append) {
             keydiv.style.padding = '5px 20px';
             keydiv.style.border = '1px solid brown';
             keydiv.style.margin = '5px';
-            keydiv.style.background='lightgreen';
+            keydiv.style.background = 'lightgreen';
             append.appendChild(keydiv);
         }
     }
@@ -55,9 +55,9 @@ hidepost.style.display = 'none';
 
 function stylebuttons(button) {
     button.style.width = '50%';
-    button.style.fontSize = '20px';
+    button.style.fontSize = '25px';
     button.style.borderRadius = '10px';
-    button.style.margin = '20px 0';
+    button.style.margin = '40px 0';
 }
 
 stylebuttons(postbutton);
@@ -89,8 +89,11 @@ fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
             posttitle.style.textAlign = 'center';
             posttitle.style.background = 'antiquewhite';
             title.style.height = '80px';
+            title.style.fontSize = '15px';
             title.innerText = `${post.title.toUpperCase()}`;
             titlebutton.innerText = 'Post Details';
+            titlebutton.style.fontSize = '15px';
+            titlebutton.style.borderRadius = '5px';
             postsdiv.appendChild(posttitle);
             posttitle.append(title, titlebutton);
 
@@ -99,7 +102,6 @@ fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
                 document.location = 'post-details.html';
             }
         }
-
     });
 
 postbutton.onclick = function () {

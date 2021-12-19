@@ -8,7 +8,6 @@ postcontainer.style.background = 'aliceblue';
 postcontainer.style.borderRadius = '10px';
 document.body.appendChild(postcontainer);
 
-
 let post = JSON.parse(localStorage.getItem('post'));
 
 let div = document.createElement('div');
@@ -22,10 +21,15 @@ hidebutton.style.display = 'none';
 button.style.fontSize = '20px';
 hidebutton.style.fontSize = '20px';
 title.innerText = post.title.toUpperCase();
-title.style.margin = '10px';
-button.style.margin = '10px';
-hidebutton.style.margin = '10px';
-body.innerText = post.body;
+title.style.margin = '30px';
+button.style.borderRadius = '10px';
+hidebutton.style.borderRadius = '10px';
+button.style.width = '30%';
+hidebutton.style.width = '30%';
+button.style.margin = '30px';
+hidebutton.style.margin = '30px';
+body.innerText = post.body.replaceAll('\n', ' ');
+body.style.textAlign = 'justify';
 postcontainer.appendChild(div);
 div.style.display = 'flex';
 div.style.flexDirection = 'column';
@@ -36,7 +40,6 @@ body.style.borderRadius = '10px';
 body.style.background = 'antiquewhite';
 body.style.padding = '20px';
 div.append(title, body, button, hidebutton);
-
 
 let commentblock = document.createElement('div');
 postcontainer.appendChild(commentblock);
@@ -59,7 +62,7 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
             commentdiv.style.flexDirection = 'column';
             commentdiv.style.alignItems = 'center';
             commentdiv.style.padding = '10px';
-            commentdiv.style.background='mistyrose';
+            commentdiv.style.background = 'mistyrose';
             for (const key in comment) {
                 if (key === 'name' || key === 'email' || key === 'body') {
                     let keydiv = document.createElement('div');
@@ -69,20 +72,20 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}/comments`)
                     keydiv.style.margin = '10px';
                     commentdiv.appendChild(keydiv);
                 }
-
             }
         }
         let name = document.getElementsByClassName('name');
-        console.log(name);
         for (const nameElement of name) {
             nameElement.innerText = nameElement.innerText.toUpperCase();
         }
     });
+
 button.onclick = function () {
     commentblock.style.display = 'flex';
     button.style.display = 'none';
     hidebutton.style.display = 'block';
 }
+
 hidebutton.onclick = function () {
     commentblock.style.display = 'none';
     button.style.display = 'block';
