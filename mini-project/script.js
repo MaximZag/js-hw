@@ -28,18 +28,28 @@ container.style.flexWrap = 'wrap';
 container.style.rowGap = '5px';
 container.style.columnGap = '5px';
 container.style.justifyContent='center';
+container.style.background='aliceblue';
+container.style.padding='20px';
+container.style.borderRadius='5px';
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(users => {
         for (const user of users) {
             let userdiv = document.createElement('div');
-            let username = document.createElement('h2');
+            let username = document.createElement('div');
             let userbutton = document.createElement('button');
             username.innerText = user.id + ':' + user.name;
+            username.style.fontSize='20px';
+            username.style.margin='10px';
             userbutton.innerText = 'User Details';
+            userbutton.style.margin='5px';
             userdiv.style.width='45%';
             userdiv.style.border='1px solid black';
             userdiv.style.borderRadius='5px';
+            userdiv.style.background='antiquewhite';
+            userdiv.style.display='flex';
+            userdiv.style.flexDirection='column';
+            userdiv.style.alignItems='center';
             container.appendChild(userdiv);
             userdiv.append(username, userbutton);
 

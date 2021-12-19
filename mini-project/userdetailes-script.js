@@ -36,10 +36,10 @@ function recall(userObject, append) {
             keydiv.classList.add(`${key}`);
             keydiv.style.fontSize = '20px';
             keydiv.style.borderRadius = '5px';
-            keydiv.style.padding = '5px';
+            keydiv.style.padding = '5px 20px';
             keydiv.style.border = '1px solid brown';
             keydiv.style.margin = '5px';
-            keydiv.style.background = 'light gray';
+            keydiv.style.background='lightgreen';
             append.appendChild(keydiv);
         }
     }
