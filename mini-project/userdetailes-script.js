@@ -9,77 +9,107 @@ document.body.appendChild(div);
 div.style.display = 'flex';
 div.style.flexDirection = 'column';
 div.style.alignItems = 'center';
-div.style.rowGap = '5px';
-div.style.marginTop='10px';
-div.style.paddingTop='10px';
-div.style.background='cornflowerblue';
-div.style.borderRadius='10px';
+div.style.marginTop = '10px';
+div.style.paddingTop = '10px';
+div.style.background = 'aliceblue';
+div.style.borderRadius = '10px';
 
 let user = JSON.parse(localStorage.getItem('user'));
 
-function recall(userObject) {
+function recall(userObject, append) {
     for (const key in userObject) {
-        let keydiv = document.createElement('div');
-
-        div.appendChild(keydiv);
         if (typeof userObject[key] === 'object') {
-            keydiv.innerText = `${key.toUpperCase()}`;
-            keydiv.style.borderBottom = '2px solid black'
-            keydiv.style.fontSize = '20px';
-            recall(userObject[key])
+            let objectdiv = document.createElement('div');
+            objectdiv.innerText = `${key.toUpperCase()}`;
+            objectdiv.style.border = '1px solid black'
+            objectdiv.style.borderRadius = '5px';
+            objectdiv.style.padding = '5px 20px';
+            objectdiv.style.display = 'flex';
+            objectdiv.style.alignItems = 'center';
+            objectdiv.classList.add(`${key}`);
+            objectdiv.style.fontSize = '25px';
+            append.appendChild(objectdiv);
+            recall(userObject[key], objectdiv);
         } else {
+            let keydiv = document.createElement('div');
             keydiv.innerText = `${key.toUpperCase()} : ${userObject[key]}`
+            keydiv.classList.add(`${key}`);
             keydiv.style.fontSize = '20px';
             keydiv.style.borderRadius = '5px';
+            keydiv.style.padding = '5px';
+            keydiv.style.border = '1px solid brown';
+            keydiv.style.margin = '5px';
             keydiv.style.background = 'light gray';
+            append.appendChild(keydiv);
         }
     }
 }
 
-recall(user);
+recall(user, div);
 
 let postbutton = document.createElement('button');
-
+let hidepost = document.createElement('button');
 postbutton.innerText = 'Posts of current user';
-postbutton.style.width = '50%';
-postbutton.style.fontSize = '20px';
-postbutton.style.borderRadius = '10px';
-postbutton.style.marginTop = '50px';
-div.appendChild(postbutton);
+hidepost.innerText = 'Hide posts';
+hidepost.style.display = 'none';
+
+function stylebuttons(button) {
+    button.style.width = '50%';
+    button.style.fontSize = '20px';
+    button.style.borderRadius = '10px';
+    button.style.margin = '20px 0';
+}
+
+stylebuttons(postbutton);
+stylebuttons(hidepost);
+
+div.append(postbutton, hidepost);
+
 let postsdiv = document.createElement('div');
 postsdiv.style.display = 'flex';
 postsdiv.style.flexWrap = 'wrap';
-postsdiv.style.columnGap='10px';
-postsdiv.style.rowGap='10px';
-postsdiv.style.justifyContent='center';
-postsdiv.style.margin='30px 0';
+postsdiv.style.columnGap = '10px';
+postsdiv.style.rowGap = '10px';
+postsdiv.style.justifyContent = 'center';
+postsdiv.style.marginBottom = '30px';
+postsdiv.style.display = 'none';
 div.appendChild(postsdiv);
 
+fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+    .then(value => value.json())
+    .then(posts => {
+        for (const post of posts) {
+            let posttitle = document.createElement('div');
+            let title = document.createElement('div');
+            let titlebutton = document.createElement('button');
+            posttitle.style.width = '17%';
+            posttitle.style.border = '1px solid black';
+            posttitle.style.borderRadius = '8px';
+            posttitle.style.padding = '5px';
+            posttitle.style.textAlign = 'center';
+            posttitle.style.background = 'antiquewhite';
+            title.style.height = '80px';
+            title.innerText = `${post.title.toUpperCase()}`;
+            titlebutton.innerText = 'Post Details';
+            postsdiv.appendChild(posttitle);
+            posttitle.append(title, titlebutton);
+
+            titlebutton.onclick = function () {
+                localStorage.setItem(`post`, JSON.stringify(post))
+                document.location = 'post-details.html';
+            }
+        }
+
+    });
 
 postbutton.onclick = function () {
-    fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
-        .then(value => value.json())
-        .then(posts => {
-            for (const post of posts) {
-                    let posttitle = document.createElement('div');
-                    let title = document.createElement('div');
-                    let titlebutton = document.createElement('button');
-                    posttitle.style.width = '17%';
-                    posttitle.style.border = '1px solid black';
-                    posttitle.style.borderRadius = '8px';
-                    posttitle.style.padding = '5px';
-                    posttitle.style.textAlign = 'center';
-                    posttitle.style.background='yellow';
-                    title.style.height='80px';
-                    title.innerText = `${post.title.toUpperCase()}`;
-                    titlebutton.innerText = 'Post Details';
-                    postsdiv.appendChild(posttitle);
-                    posttitle.append(title, titlebutton);
+    postbutton.style.display = 'none';
+    hidepost.style.display = 'block';
+    postsdiv.style.display = 'flex';
+}
 
-                    titlebutton.onclick=function () {
-                        localStorage.setItem(`post`, JSON.stringify(post))
-                        document.location='post-details.html';
-                    }
-            }
-        });
+hidepost.onclick = function () {
+    postbutton.style.display = 'block';
+    hidepost.style.display = 'none';
+    postsdiv.style.display = 'none';
 }
